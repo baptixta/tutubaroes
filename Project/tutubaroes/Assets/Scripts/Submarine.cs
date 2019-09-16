@@ -13,6 +13,12 @@ public class Submarine : MonoBehaviour
     public float rotationFactor;
     public float maxFloatVelocity;
     public float rotationInterpolationSpeed;
+    public List<GameObject> trash = new List<GameObject>();
+    public Transform pointer;
+    public float succForce;
+    public GameObject popOutParticle;
+
+            
     float currentRotation = 0.0f;
     Vector3 inputVector;
     Rigidbody rb;
@@ -35,6 +41,15 @@ public class Submarine : MonoBehaviour
             transform.eulerAngles = new Vector3(transform.eulerAngles.x, Mathf.Lerp(transform.eulerAngles.y, 180.0f, rotationInterpolationSpeed * Time.deltaTime), transform.eulerAngles.z);
         if (rb.velocity.x > 0) //Right
             transform.eulerAngles = new Vector3(transform.eulerAngles.x, Mathf.Lerp(transform.eulerAngles.y, 0.0f, rotationInterpolationSpeed * Time.deltaTime), transform.eulerAngles.z);
+
+        if (Input.GetKey(KeyCode.Space))
+        {
+            foreach (GameObject lixo in trash)
+            {
+                pointer.LookAt(lixo.transform.position);
+                lixo.GetComponent<Rigidbody>().AddForce(-pointer.forward * succForce);
+            }
+        }            
     }
 
     void FixedUpdate()
@@ -57,5 +72,34 @@ public class Submarine : MonoBehaviour
         }
         //Move sideways
         rb.velocity = new Vector3(moveForce * inputVector.x, rb.velocity.y, rb.velocity.z);
+    }
+
+    void OnTriggerEnter(Collider collider)
+    {
+        if (collider.gameObject.tag == "lixo")
+        {
+            trash.Add(collider.gameObject);
+        }
+    }
+
+    void OnTriggerExit(Collider collider)
+    {
+        if (collider.gameObject.tag == "lixo")
+        {
+            trash.Remove(collider.gameObject);
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision) {
+        if (Input.GetKey(KeyCode.Space))
+        {
+            if (collision.gameObject.tag == "lixo")
+            {
+                Instantiate(popOutParticle, collision.gameObject.transform.position, collision.gameObject.transform.rotation);
+                UI.instance.AddHealth (5.0f);    
+                Destroy(collision.gameObject);
+                UI.instance.AddScore(1);          
+            }
+        }
     }
 }
