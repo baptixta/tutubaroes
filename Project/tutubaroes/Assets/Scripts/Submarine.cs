@@ -42,15 +42,20 @@ public class Submarine : MonoBehaviour
         if (rb.velocity.x > 0) //Right
             transform.eulerAngles = new Vector3(transform.eulerAngles.x, Mathf.Lerp(transform.eulerAngles.y, 0.0f, rotationInterpolationSpeed * Time.deltaTime), transform.eulerAngles.z);
 
+        foreach (GameObject obj in trash)
+        {   
+            if (obj == null)
+            {
+                trash.Remove (obj);
+            }
+        }   
+
         if (Input.GetKey(KeyCode.Space))
         {
             foreach (GameObject lixo in trash)
             {
-                if (lixo != null)
-                {
-                    pointer.LookAt(lixo.transform.position);
-                    lixo.GetComponent<Rigidbody>().AddForce(-pointer.forward * succForce);
-                }
+                pointer.LookAt(lixo.transform.position);
+                lixo.GetComponent<Rigidbody>().AddForce(-pointer.forward * succForce);
             }
         }            
     }
