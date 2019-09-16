@@ -40,11 +40,11 @@ public class Submarine : MonoBehaviour
     void FixedUpdate()
     {
         //Dive
-        if (inputVector.y < 0 && transform.position.y <= waterLevel)
-        {
+        //if (inputVector.y < 0 && transform.position.y <= waterLevel)
+        //{
             rb.velocity = new Vector3(rb.velocity.x, diveVelocity * inputVector.y, 0);
-        }
-        else if (transform.position.y < 0) //Float
+        //}
+        /* else if (transform.position.y < 0) //Float
         {
             if (transform.position.y <= waterLevel - 0.2f)
             {
@@ -54,7 +54,7 @@ public class Submarine : MonoBehaviour
                                                             maxFloatVelocity),
                                             0);
             }
-        }
+        } */
         //Move sideways
         rb.velocity = new Vector3(moveForce * inputVector.x, rb.velocity.y, rb.velocity.z);
     }
