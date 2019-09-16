@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 716536989450702894}
   m_Layer: 0
   m_Name: smartphone
-  m_TagString: Untagged
+  m_TagString: lixo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -90,7 +90,7 @@ BoxCollider:
   m_GameObject: {fileID: 4953381053305662868}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.013983258, y: 0.01570824, z: 0.022363625}
   m_Center: {x: 0.000074526295, y: -0.00007102055, z: 0.00009843799}
