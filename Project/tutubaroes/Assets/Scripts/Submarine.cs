@@ -97,6 +97,7 @@ public class Submarine : MonoBehaviour
             {
                 Instantiate(popOutParticle, collision.gameObject.transform.position, collision.gameObject.transform.rotation);
                 UI.instance.AddHealth (5.0f);    
+                trash.Remove(collision.gameObject);
                 Destroy(collision.gameObject);
                 UI.instance.AddScore(1);          
             }
