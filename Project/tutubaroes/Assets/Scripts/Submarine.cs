@@ -46,8 +46,11 @@ public class Submarine : MonoBehaviour
         {
             foreach (GameObject lixo in trash)
             {
-                pointer.LookAt(lixo.transform.position);
-                lixo.GetComponent<Rigidbody>().AddForce(-pointer.forward * succForce);
+                if (lixo != null)
+                {
+                    pointer.LookAt(lixo.transform.position);
+                    lixo.GetComponent<Rigidbody>().AddForce(-pointer.forward * succForce);
+                }
             }
         }            
     }
