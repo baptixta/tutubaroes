@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UI : MonoBehaviour
 {
@@ -30,6 +31,7 @@ public class UI : MonoBehaviour
         oceanHealth -= Time.deltaTime * oceanHealthDecrease;
         //Atualizando o valor do scoreText
         scoreText.text = score.ToString();
+        Death();
     }
 
     public void AddHealth (float amount)
@@ -40,5 +42,13 @@ public class UI : MonoBehaviour
     public void AddScore (int amount)
     {
         score += amount;
+    }
+
+    public void Death()
+    {
+        if (oceanHealth <= -12)
+        {
+            SceneManager.LoadScene("Game");
+        }
     }
 }
