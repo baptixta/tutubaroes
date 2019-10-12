@@ -18,14 +18,17 @@ public class Submarine : MonoBehaviour
     public float succForce;
     public GameObject popOutParticle;
 
+    private AudioManager audioManager;
             
     float currentRotation = 0.0f;
     Vector3 inputVector;
     Rigidbody rb;
 
     void Start()
-    {
+    {        
         rb = GetComponent<Rigidbody>();
+        audioManager = AudioManager.instance;
+        audioManager.PlaySound("Music");
     }
 
     void Update()
@@ -99,6 +102,8 @@ public class Submarine : MonoBehaviour
     }
 
     private void OnCollisionEnter(Collision collision) {
+        audioManager.PlaySound("Collision");
+        
         if (Input.GetKey(KeyCode.Space))
         {
             if (collision.gameObject.tag == "lixo")
