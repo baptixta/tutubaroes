@@ -42,19 +42,19 @@ public class Submarine : MonoBehaviour
         transform.eulerAngles = new Vector3 (0, transform.eulerAngles.y, currentRotation);
 
         //Rotation HORIZONTAL
-        rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
+        rb.angularVelocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
         if (rb.velocity.x < 0) //Left
             transform.eulerAngles = new Vector3(transform.eulerAngles.x, Mathf.Lerp(transform.eulerAngles.y, 180.0f, rotationInterpolationSpeed * Time.deltaTime), transform.eulerAngles.z);
         if (rb.velocity.x > 0) //Right
             transform.eulerAngles = new Vector3(transform.eulerAngles.x, Mathf.Lerp(transform.eulerAngles.y, 0.0f, rotationInterpolationSpeed * Time.deltaTime), transform.eulerAngles.z);
 
-        foreach (GameObject obj in trash)
-        {   
-            if (obj == null)
+        for (int i=0; i < trash.Count; i++)
+        {
+            if (trash[i] == null)
             {
-                trash.Remove (obj);
+                trash.RemoveAt(i);
             }
-        }   
+        }
 
         if (Input.GetKey(KeyCode.Space))
         {

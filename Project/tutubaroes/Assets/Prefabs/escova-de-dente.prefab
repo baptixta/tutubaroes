@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3886295764775405258}
   - component: {fileID: 5791760890835864548}
   - component: {fileID: 326530592926448679}
+  - component: {fileID: -2612437172421542640}
   m_Layer: 0
   m_Name: escova-de-dente
   m_TagString: lixo
@@ -109,3 +110,15 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 8
   m_CollisionDetection: 0
+--- !u!114 &-2612437172421542640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3301757985199043094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc4454474cf847e4dae2c363ee91179a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
