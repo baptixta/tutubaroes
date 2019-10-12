@@ -8,7 +8,10 @@ public class Sound {
     public AudioClip clip;
     [Range(0.5f,1.5f)]
     public float volume = 0.7f;
-    private AudioSource source;
+    public bool playOnAwake;
+    public bool loop;
+    [HideInInspector]
+    public AudioSource source;
 
     public void setSource (AudioSource _source) {
         source = _source;
@@ -45,6 +48,12 @@ public class AudioManager : MonoBehaviour
             GameObject _go = new GameObject("Sound_" + sounds[i].name);
             _go.transform.SetParent(this.transform);
             sounds[i].setSource(_go.AddComponent<AudioSource>()); 
+            sounds[i].source.playOnAwake = sounds[i].playOnAwake;
+            sounds[i].source.loop = sounds[i].loop;
+            if (sounds[i].playOnAwake)
+            {
+                PlaySound(sounds[i].name);
+            }
         }
     }
 

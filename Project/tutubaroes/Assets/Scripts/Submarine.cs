@@ -28,7 +28,7 @@ public class Submarine : MonoBehaviour
     {        
         rb = GetComponent<Rigidbody>();
         audioManager = AudioManager.instance;
-        audioManager.PlaySound("Music");
+        //audioManager.PlaySound("Music");
     }
 
     void Update()
