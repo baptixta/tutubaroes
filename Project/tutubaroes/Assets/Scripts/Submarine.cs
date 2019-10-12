@@ -35,11 +35,14 @@ public class Submarine : MonoBehaviour
     {
         //Getting input
         inputVector = new Vector3(Input.GetAxisRaw ("Horizontal"), Input.GetAxisRaw ("Vertical"), 0);
+
         //Rotation VERTICAL
         float desiredRotation = rb.velocity.y * rotationFactor;
         currentRotation = Mathf.Lerp(currentRotation, desiredRotation, rotationInterpolationSpeed * Time.deltaTime);
         transform.eulerAngles = new Vector3 (0, transform.eulerAngles.y, currentRotation);
+
         //Rotation HORIZONTAL
+        rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
         if (rb.velocity.x < 0) //Left
             transform.eulerAngles = new Vector3(transform.eulerAngles.x, Mathf.Lerp(transform.eulerAngles.y, 180.0f, rotationInterpolationSpeed * Time.deltaTime), transform.eulerAngles.z);
         if (rb.velocity.x > 0) //Right
