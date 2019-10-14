@@ -3342,6 +3342,11 @@ MonoBehaviour:
   - {fileID: 1722609323616187713, guid: f80be9199318e6b449fd9a5e0591e1a2, type: 3}
   - {fileID: 9081224358247660553, guid: a6575125933aaae459f824662e7a2327, type: 3}
   - {fileID: 8685936350162883307, guid: 4d78198c2690ee64f9f832f0c48338ae, type: 3}
+  - {fileID: 3163337143900913199, guid: f5cb63aac499d2841947f793be28427b, type: 3}
+  - {fileID: 3163337143900913199, guid: e996d06d9d3efeb4eb2a8d4152de0929, type: 3}
+  - {fileID: 3163337143900913199, guid: 6ec0e4286311a784babd136a327086e0, type: 3}
+  - {fileID: 3163337143900913199, guid: d1ebe1ab2cdd9fb4485f53b5467d4bbd, type: 3}
+  - {fileID: 3163337143900913199, guid: f1da53ce131c4684183bfdd159e36ce5, type: 3}
   delay: 0.2
   spawnpoint: {fileID: 1022962835}
   spawnpointCenter: {fileID: 1777418850}
